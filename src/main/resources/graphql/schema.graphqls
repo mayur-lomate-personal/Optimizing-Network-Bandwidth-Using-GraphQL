@@ -1,0 +1,24 @@
+type Post {
+    pid: ID!
+    title: String!
+    text: String!
+    category: String
+    author: Author!
+}
+
+type Author {
+    aid: ID!
+    name: String!
+    thumbnail: String
+}
+
+# The Root Query for the application
+type Query {
+    recentPosts(page: Int): [Post]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    writePost(title: String!, text: String!, category: String, author: Int!) : Post!
+    insertAuthor(name: String!, thumbnail: String!) : Author!
+}
